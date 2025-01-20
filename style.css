@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    bgcolor: #121212;
 }
 
 /* Body and Text */
@@ -16,6 +17,7 @@ body {
 select { 
     padding: 10px; 
     margin: 10px; 
+    width: 90%; /* Make it responsive */
 }
 
 .medicine-container img { 
@@ -33,30 +35,28 @@ select {
 header {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%; /* Make the header span the full width of the page */
+    width: 100%;
     padding: 10px;
+    background-color: #333;
     color: white;
     z-index: 100;
-    text-align: center; /* Centering text for better view */
-    background-color: transparent; /* Remove any gray or background color */
 }
 
 .header-content {
-    display: block; /* Stack the company name and product info vertically */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0 20px;
 }
 
 .company-name {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
-    display: block; /* Force company name to be on a new line */
 }
 
-.product-info {
+.uncle-name {
     font-size: 14px;
     font-style: italic;
-    display: block; /* Force product info to be on a new line */
 }
 
 /* Zoom Modal Style */
@@ -100,15 +100,16 @@ footer {
     margin-top: 20px;
     font-size: 14px;
     color: #888;
+    text-align: center;
 }
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .company-name {
-        font-size: 22px;
+        font-size: 18px;
     }
 
-    .product-info {
+    .uncle-name {
         font-size: 12px;
     }
 
@@ -127,10 +128,10 @@ footer {
 
 @media (max-width: 480px) {
     .company-name {
-        font-size: 20px;
+        font-size: 16px;
     }
 
-    .product-info {
+    .uncle-name {
         font-size: 10px;
     }
 
