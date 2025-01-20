@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor & Medicine Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2>Select Area</h2>
+    <select id="areaSelect" onchange="loadDoctors()">
+        <option value="">--Select Area--</option>
+    </select>
+
+    <h2>Select Doctor</h2>
+    <select id="doctorSelect" onchange="loadMedicines()">
+        <option value="">--Select Doctor--</option>
+    </select>
+
+    <h2>Medicines</h2>
+    <div id="medicineContainer" class="medicine-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
