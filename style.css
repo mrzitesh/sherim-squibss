@@ -1,23 +1,12 @@
-/* Reset some basic styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body and Text */
 body { 
     font-family: Arial, sans-serif; 
     padding: 20px; 
     text-align: center; 
-    margin-top: 60px; /* Space for the fixed header */
 }
 
 select { 
     padding: 10px; 
     margin: 10px; 
-    width: 80%;  /* Make the select dropdowns a bit wider */
-    max-width: 400px; /* Limit max width */
 }
 
 .medicine-container img { 
@@ -31,25 +20,6 @@ select {
     opacity: 0.8;
 }
 
-/* Header Styles */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%; /* Full width for header */
-    padding: 10px;
-    background-color: #007bff; /* Blue background */
-    color: white;
-    text-align: center;
-    z-index: 100; /* Ensure it stays on top */
-}
-
-header h1 {
-    font-size: 30px;
-    font-weight: bold;
-    margin: 0; /* Remove default margin */
-}
-
 /* Zoom Modal Style */
 .zoom-modal {
     display: none;
@@ -59,30 +29,26 @@ header h1 {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.9); /* Dark background for zoom effect */
+    background-color: rgba(0,0,0,0.9);
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Prevents zoomed image from overflowing */
 }
 
 .zoom-modal img {
     max-width: 90%;
     max-height: 90%;
     margin: auto;
-    position: relative;
-    z-index: 1; /* Image under the button */
 }
 
-/* Close Button Styles */
 .close-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 10px;
+    right: 25px;
     color: white;
     font-size: 30px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 100; /* Ensure the close button is on top */
+    z-index: 2;
 }
 
 .close-btn:hover,
@@ -95,33 +61,4 @@ footer {
     margin-top: 20px;
     font-size: 14px;
     color: #888;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 24px; /* Smaller text on tablets */
-    }
-
-    select {
-        width: 90%; /* More space on smaller screens */
-    }
-
-    footer {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 20px; /* Even smaller text on mobile devices */
-    }
-
-    select {
-        width: 100%; /* Full width on mobile devices */
-    }
-
-    footer {
-        font-size: 10px;
-    }
 }
