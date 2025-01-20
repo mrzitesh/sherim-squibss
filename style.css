@@ -1,26 +1,38 @@
-body { 
-    font-family: Arial, sans-serif; 
-    padding: 20px; 
-    text-align: center; 
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    text-align: center;
+    margin: 0;
 }
 
-select { 
-    padding: 10px; 
-    margin: 10px; 
+select {
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
+    max-width: 300px;
+    box-sizing: border-box;
 }
 
-.medicine-container img { 
-    width: 100px; 
-    margin: 5px; 
-    border: 1px solid #ccc; 
+.medicine-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.medicine-container img {
+    width: 100px;
+    margin: 5px;
+    border: 1px solid #ccc;
     cursor: pointer;
+    transition: opacity 0.3s ease;
 }
 
 .medicine-container img:hover {
     opacity: 0.8;
 }
 
-/* Zoom Modal Style */
+/* Zoom Modal Styles */
 .zoom-modal {
     display: none;
     position: fixed;
@@ -40,6 +52,7 @@ select {
     margin: auto;
 }
 
+/* Close Button */
 .close-btn {
     position: absolute;
     top: 10px;
@@ -56,9 +69,60 @@ select {
     color: #f44336;
 }
 
-/* Footer Style */
+/* Footer Styles */
 footer {
     margin-top: 20px;
     font-size: 14px;
     color: #888;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    select {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .medicine-container img {
+        width: 80px;
+    }
+}
+
+/* For smaller screens (like mobile phones) */
+@media (max-width: 480px) {
+    select {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .medicine-container img {
+        width: 60px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
+
+/* For the Company Header Bar */
+header {
+    background-color: #4CAF50;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header p {
+    margin: 5px;
+}
+
+/* Add padding around content */
+.container {
+    margin-top: 20px;
 }
