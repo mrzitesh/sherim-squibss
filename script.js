@@ -47,10 +47,25 @@ function loadMedicines() {
             let img = document.createElement("img");
             img.src = med.photo;
             img.alt = med.medicine;
+            img.onclick = function() { zoomImage(med.photo); };
             let label = document.createElement("p");
             label.textContent = med.medicine;
             medicineContainer.appendChild(img);
             medicineContainer.appendChild(label);
         });
     }
+}
+
+// Zoom Image
+function zoomImage(imageSrc) {
+    let zoomModal = document.getElementById("zoomModal");
+    let zoomedImg = document.getElementById("zoomedImg");
+    zoomedImg.src = imageSrc;
+    zoomModal.style.display = "flex";
+}
+
+// Close Zoom
+document.getElementById("closeZoom").onclick = function() {
+    let zoomModal = document.getElementById("zoomModal");
+    zoomModal.style.display = "none";
 }
