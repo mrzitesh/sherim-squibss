@@ -39,23 +39,24 @@ header {
     background-color: #333;
     color: white;
     z-index: 100;
+    text-align: right;
 }
 
 .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: block; /* Stack the content vertically */
     padding: 0 20px;
 }
 
 .company-name {
     font-size: 20px;
     font-weight: bold;
+    display: block; /* Force company name to be on a new line */
 }
 
 .uncle-name {
     font-size: 14px;
     font-style: italic;
+    display: block; /* Force "By Hansraj Nagar" to be on a new line */
 }
 
 /* Zoom Modal Style */
