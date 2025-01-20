@@ -1,0 +1,14 @@
+body { 
+    font-family: Arial, sans-serif; 
+    padding: 20px; 
+    text-align: center; 
+}
+select { 
+    padding: 10px; 
+    margin: 10px; 
+}
+.medicine-container img { 
+    width: 100px; 
+    margin: 5px; 
+    border: 1px solid #ccc; 
+}
