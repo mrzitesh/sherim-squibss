@@ -1,33 +1,44 @@
-let data = {};
+// Example data for areas, doctors, and medicines
+const data = {
+    "Nagaur": {
+        "Dr. Sharma": ["Medicine 1", "Medicine 2", "Medicine 3"],
+        "Dr. Verma": ["Medicine 4", "Medicine 5"]
+    },
+    "Merta City": {
+        "Dr. Kapoor": ["Medicine 6", "Medicine 7"],
+        "Dr. Jain": ["Medicine 8", "Medicine 9", "Medicine 10"]
+    },
+    // Add more areas and doctors as needed
+};
 
-// Load JSON data
-fetch('doctors_medicine.json')
-    .then(response => response.json())
-    .then(json => {
-        data = json;
-        loadAreas();
-    });
+// Default company selection
+const companySelect = document.getElementById("companySelect");
+companySelect.value = "Sherim Squibss"; // Set default company
 
-// Populate Area Dropdown
+// Get the area and doctor select elements
+const areaSelect = document.getElementById("areaSelect");
+const doctorSelect = document.getElementById("doctorSelect");
+const medicineContainer = document.getElementById("medicineContainer");
+
+// Function to load areas dynamically
 function loadAreas() {
-    let areaSelect = document.getElementById("areaSelect");
-    Object.keys(data).forEach(area => {
-        let option = document.createElement("option");
+    const areas = Object.keys(data);
+    areas.forEach(area => {
+        const option = document.createElement("option");
         option.value = area;
         option.textContent = area;
         areaSelect.appendChild(option);
     });
 }
 
-// Populate Doctors Based on Selected Area
+// Function to load doctors based on the selected area
 function loadDoctors() {
-    let area = document.getElementById("areaSelect").value;
-    let doctorSelect = document.getElementById("doctorSelect");
-    doctorSelect.innerHTML = "<option value=''>--Select Doctor--</option>";
-
-    if (area && data[area]) {
-        Object.keys(data[area]).forEach(doctor => {
-            let option = document.createElement("option");
+    const selectedArea = areaSelect.value;
+    doctorSelect.innerHTML = "<option value=''>--Select Doctor--</option>"; // Reset doctors list
+    if (selectedArea) {
+        const doctors = Object.keys(data[selectedArea]);
+        doctors.forEach(doctor => {
+            const option = document.createElement("option");
             option.value = doctor;
             option.textContent = doctor;
             doctorSelect.appendChild(option);
@@ -35,37 +46,50 @@ function loadDoctors() {
     }
 }
 
-// Show Medicines & Photos Based on Selected Doctor
+// Function to load medicines based on the selected doctor
 function loadMedicines() {
-    let area = document.getElementById("areaSelect").value;
-    let doctor = document.getElementById("doctorSelect").value;
-    let medicineContainer = document.getElementById("medicineContainer");
-    medicineContainer.innerHTML = "";
+    const selectedArea = areaSelect.value;
+    const selectedDoctor = doctorSelect.value;
+    medicineContainer.innerHTML = ""; // Clear existing medicines
 
-    if (area && doctor && data[area][doctor]) {
-        data[area][doctor].forEach(med => {
-            let img = document.createElement("img");
-            img.src = med.photo;
-            img.alt = med.medicine;
-            img.onclick = function() { zoomImage(med.photo); };
-            let label = document.createElement("p");
-            label.textContent = med.medicine;
+    if (selectedArea && selectedDoctor) {
+        const medicines = data[selectedArea][selectedDoctor];
+        medicines.forEach(medicine => {
+            const img = document.createElement("img");
+            img.src = `https://via.placeholder.com/100?text=${medicine}`; // Placeholder for medicine image
+            img.alt = medicine;
+            img.addEventListener("click", function() {
+                openZoom(img.src);
+            });
             medicineContainer.appendChild(img);
-            medicineContainer.appendChild(label);
         });
     }
 }
 
-// Zoom Image
-function zoomImage(imageSrc) {
-    let zoomModal = document.getElementById("zoomModal");
-    let zoomedImg = document.getElementById("zoomedImg");
-    zoomedImg.src = imageSrc;
-    zoomModal.style.display = "flex";
+// Zoom Modal functionality
+const zoomModal = document.getElementById("zoomModal");
+const zoomedImg = document.getElementById("zoomedImg");
+const closeZoom = document.getElementById("closeZoom");
+
+// Open zoom modal when an image is clicked
+function openZoom(imgSrc) {
+    zoomedImg.src = imgSrc;
+    zoomModal.style.display = "flex"; // Show the modal
 }
 
-// Close Zoom
-document.getElementById("closeZoom").onclick = function() {
-    let zoomModal = document.getElementById("zoomModal");
-    zoomModal.style.display = "none";
-}
+// Close zoom modal when the close button is clicked
+closeZoom.addEventListener("click", function() {
+    zoomModal.style.display = "none"; // Hide the modal
+});
+
+// Close zoom modal when clicking outside of the image
+zoomModal.addEventListener("click", function(event) {
+    if (event.target === zoomModal) { // Check if the click is outside the image
+        zoomModal.style.display = "none"; // Hide the modal
+    }
+});
+
+// Load the areas when the page is loaded
+document.addEventListener("DOMContentLoaded", function() {
+    loadAreas();
+});
