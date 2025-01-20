@@ -1,0 +1,16 @@
+{
+  "Nagaur": {
+    "Dr. Ajay Sharma": [
+      { "medicine": "Paracetamol", "photo": "images/paracetamol.jpg" },
+      { "medicine": "Ibuprofen", "photo": "images/ibuprofen.jpg" }
+    ],
+    "Dr. Suresh Mehta": [
+      { "medicine": "Amoxicillin", "photo": "images/amoxicillin.jpg" }
+    ]
+  },
+  "Merta City": {
+    "Dr. Sunil Verma": [
+      { "medicine": "Ciprofloxacin", "photo": "images/ciprofloxacin.jpg" }
+    ]
+  }
+}
