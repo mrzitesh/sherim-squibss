@@ -33,11 +33,13 @@ select {
 header {
     position: fixed;
     top: 0;
-    width: 100%;
+    left: 0;
+    width: 100%; /* Make the header span the full width of the page */
     padding: 10px;
     color: white;
     z-index: 100;
     text-align: center; /* Centering text for better view */
+    background-color: transparent; /* Remove any gray or background color */
 }
 
 .header-content {
