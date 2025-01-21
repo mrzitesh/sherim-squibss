@@ -1,11 +1,4 @@
-/* Reset some basic styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body and Text */
+/* General Styles */
 body { 
     font-family: Arial, sans-serif; 
     padding: 20px; 
@@ -16,7 +9,14 @@ body {
 select { 
     padding: 10px; 
     margin: 10px; 
-    width: 90%; /* Make it responsive */
+    width: 90%;
+}
+
+/* Medicine Container */
+.medicine-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .medicine-container img { 
@@ -30,35 +30,7 @@ select {
     opacity: 0.8;
 }
 
-/* Header Styles */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    z-index: 100;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.company-name {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.uncle-name {
-    font-size: 14px;
-    font-style: italic;
-}
-
-/* Zoom Modal Style */
+/* Zoom Modal */
 .zoom-modal {
     display: none;
     position: fixed;
@@ -70,14 +42,23 @@ header {
     background-color: rgba(0,0,0,0.9);
     justify-content: center;
     align-items: center;
+    overflow-y: auto; /* Allow scrolling */
 }
 
-.zoom-modal img {
+/* Zoom Gallery */
+.zoom-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.zoom-gallery img {
     max-width: 90%;
-    max-height: 90%;
-    margin: auto;
+    margin: 10px 0;
 }
 
+/* Close Button */
 .close-btn {
     position: absolute;
     top: 10px;
@@ -94,7 +75,7 @@ header {
     color: #f44336;
 }
 
-/* Footer Style */
+/* Footer */
 footer {
     margin-top: 20px;
     font-size: 14px;
@@ -102,43 +83,27 @@ footer {
     text-align: center;
 }
 
-/* Media Queries for Responsiveness */
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .company-name {
-        font-size: 18px;
-    }
-
-    .uncle-name {
-        font-size: 12px;
-    }
-
-    header {
-        padding: 8px;
-    }
-
     select {
-        width: 80%;  /* Smaller select dropdown */
+        width: 80%;
     }
 
-    footer {
-        font-size: 12px;
+    .medicine-container img {
+        width: 80px;
     }
 }
 
 @media (max-width: 480px) {
-    .company-name {
-        font-size: 16px;
-    }
-
-    .uncle-name {
-        font-size: 10px;
-    }
-
     select {
-        width: 75%;  /* Even smaller select dropdown */
+        width: 75%;
+    }
+
+    .medicine-container img {
+        width: 60px;
     }
 
     footer {
-        font-size: 10px;
+        font-size: 12px;
     }
 }
