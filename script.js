@@ -1,4 +1,5 @@
 let data = {};
+let currentImages = [];
 
 // Load JSON data
 fetch('doctors_medicine.json')
@@ -41,31 +42,52 @@ function loadMedicines() {
     let doctor = document.getElementById("doctorSelect").value;
     let medicineContainer = document.getElementById("medicineContainer");
     medicineContainer.innerHTML = "";
+    currentImages = [];
 
     if (area && doctor && data[area][doctor]) {
         data[area][doctor].forEach(med => {
             let img = document.createElement("img");
             img.src = med.photo;
             img.alt = med.medicine;
-            img.onclick = function() { zoomImage(med.photo); };
+            img.onclick = function() { openGallery(); };
             let label = document.createElement("p");
             label.textContent = med.medicine;
+
             medicineContainer.appendChild(img);
             medicineContainer.appendChild(label);
+
+            // Store image sources for the zoom gallery
+            currentImages.push(med.photo);
         });
     }
 }
 
-// Zoom Image
-function zoomImage(imageSrc) {
+// Open Image Gallery (Zoomed View)
+function openGallery() {
     let zoomModal = document.getElementById("zoomModal");
-    let zoomedImg = document.getElementById("zoomedImg");
-    zoomedImg.src = imageSrc;
+    let zoomGallery = document.getElementById("zoomGallery");
+    
+    // Clear previous images in the gallery
+    zoomGallery.innerHTML = "";
+
+    currentImages.forEach(src => {
+        let img = document.createElement("img");
+        img.src = src;
+        img.classList.add("zoomed-image");
+        zoomGallery.appendChild(img);
+    });
+
     zoomModal.style.display = "flex";
 }
 
-// Close Zoom
+// Close Zoom when clicking outside the images
+document.getElementById("zoomModal").onclick = function(event) {
+    if (event.target === this) {
+        this.style.display = "none";
+    }
+};
+
+// Close Button Functionality
 document.getElementById("closeZoom").onclick = function() {
-    let zoomModal = document.getElementById("zoomModal");
-    zoomModal.style.display = "none";
-}
+    document.getElementById("zoomModal").style.display = "none";
+};
