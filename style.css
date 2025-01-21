@@ -42,20 +42,40 @@ select {
     background-color: rgba(0,0,0,0.9);
     justify-content: center;
     align-items: center;
-    overflow-y: auto; /* Allow scrolling */
 }
 
-/* Zoom Gallery */
-.zoom-gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+/* Zoom Image */
+.zoom-modal img {
+    max-width: 80%;
+    max-height: 80%;
+    margin: auto;
+    display: block;
 }
 
-.zoom-gallery img {
-    max-width: 90%;
-    margin: 10px 0;
+/* Navigation Buttons */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+    user-select: none;
+}
+
+.left-btn {
+    left: 5%;
+}
+
+.right-btn {
+    right: 5%;
+}
+
+.nav-btn:hover {
+    background: rgba(255,255,255,0.3);
 }
 
 /* Close Button */
