@@ -24,7 +24,9 @@
     <!-- Zoom Modal for Image Gallery -->
     <div id="zoomModal" class="zoom-modal">
         <span id="closeZoom" class="close-btn">&times;</span>
-        <div id="zoomGallery" class="zoom-gallery"></div>
+        <span id="prevBtn" class="nav-btn left-btn" onclick="prevImage()">&#10094;</span>
+        <img id="zoomedImg" src="" alt="Zoomed Image">
+        <span id="nextBtn" class="nav-btn right-btn" onclick="nextImage()">&#10095;</span>
     </div>
 
     <!-- Copyright Text -->
